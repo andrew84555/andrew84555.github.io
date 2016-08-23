@@ -1,12 +1,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html><head>
-
   
   <meta content="text/html;charset=ISO-8859-1" http-equiv="Content-Type">
-  <meta http-equiv="content-type" content="text/html; utf-8"><title>Lab 3</title>
+
   
- <script src="https://api.mapbox.com/mapbox-gl-js/v0.18.0/mapbox-gl.js"></script>
-<link href="https://api.mapbox.com/mapbox-gl-js/v0.18.0/mapbox-gl.css" rel="stylesheet"></head><body style="background-image: url(../images/bak.png);">
+  <meta http-equiv="content-type" content="text/html; utf-8">
+  <title>Lab 3</title>
+
+  
+  
+  <script src="https://api.mapbox.com/mapbox-gl-js/v0.18.0/mapbox-gl.js"></script>
+  
+  <link href="https://api.mapbox.com/mapbox-gl-js/v0.18.0/mapbox-gl.css" rel="stylesheet">
+
+</head><body style="background-image: url(../images/bak.png);">
 <table style="width: 90%; height: 100%; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="0" cellspacing="0">
 
   <tbody>
@@ -49,9 +56,9 @@
       <br>
       </span></small></div>
       </td>
-      <td style="vertical-align: top; height: 100%; width: 100%;">
-<div id="map" style="width: 50%; height: 100%;"></div>
-<script>
+      <td style="vertical-align: top; height: 100%; width: 50%;">
+      <div id="map" style="width: 100%; height: 100%;"></div>
+      <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5kcmV3ODQ1NTUiLCJhIjoiY2lydnp2Nzk3MGoza2ZnbTh1b2FoenFqYSJ9.iPSB6vUKQLifDYV570B8zg';
 var map = new mapboxgl.Map({
 container: 'map',
@@ -59,13 +66,53 @@ style: "mapbox://styles/andrew84555/cirwnrt3c003igbmfgvm1zpxv",
 center: [172.6, -41.46],
 zoom: 4.5
 });
-</script>
-      <br>
-</td>
+      </script>
+      </td>
+
+
+      <td style="vertical-align: top; height: 100%; width: 50%;">
+      <div id="newmap" style="width: 100%; height: 100%;"></div>
+      <script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiYW5kcmV3ODQ1NTUiLCJhIjoiY2lydnp2Nzk3MGoza2ZnbTh1b2FoenFqYSJ9.iPSB6vUKQLifDYV570B8zg';
+var newmap = new mapboxgl.Map({
+container: 'newmap',
+style: "mapbox://styles/andrew84555/cis6rl0xc000ggslwb5m52hbv",
+center: [172.6, -41.46],
+zoom: 4.5
+});
+
+newmap.on('load', function () {
+    newmap.addSource('greatwalks-b2tjhc', {
+        type: 'vector',
+        url: 'mapbox://andrew84555.6o04kflm'
+    });
+newmap.addLayer({
+        "id": 'greatwalks-b2tjhc',
+        "type": "line",
+        "source": 'greatwalks-b2tjhc',
+        "source-layer": 'greatwalks-b2tjhc',
+        "layout": {
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "paint": {
+            "line-color": "#ff0000",
+            "line-width": 1
+        }
+    });
+newmap.setLayerZoomRange('greatwalks-b2tjhc', 6, 22); //fix later
+});
+
+      </script>
+      </td>
+
+
     </tr>
   </tbody>
 </table>
+
 <table style="text-align: left; width: 90%; height: 50%; margin-left: auto; margin-right: auto; background-color: white;" border="0" cellpadding="0" cellspacing="0">
+
   <tbody>
     <tr>
       <td style="vertical-align: top; width: 250px;"><br>
@@ -83,5 +130,9 @@ zoom: 4.5
     </tr>
   </tbody>
 </table>
+
 <br>
+
+<br>
+
 </body></html>
