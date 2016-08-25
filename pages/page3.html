@@ -57,6 +57,7 @@
       </span></small></div>
       </td>
       <td style="vertical-align: top; height: 100%; width: 50%;">
+            <style>.mapboxgl-popup {max-width: 400px; font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;}</style>
       <div id="map" style="width: 100%; height: 100%;"></div>
       <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5kcmV3ODQ1NTUiLCJhIjoiY2lydnp2Nzk3MGoza2ZnbTh1b2FoenFqYSJ9.iPSB6vUKQLifDYV570B8zg';
@@ -86,6 +87,140 @@ newmap.on('load', function () {
         type: 'vector',
         url: 'mapbox://andrew84555.6o04kflm'
     });
+newmap.addSource("markers", {
+        "type": "geojson",
+        "data": {
+            "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "description": "<strong>Truckeroo</strong><p><a href=\"http://www.truckeroodc.com/www/\" target=\"_blank\">Truckeroo</a> brings dozens of food trucks, live music, and games to half and M Street SE (across from Navy Yard Metro Station) today from 11:00 a.m. to 11:00 p.m.</p>",
+        "marker-symbol": "location",
+        "title": "Heaphy Track"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          172.1399688720703,
+          -40.95864123118628
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+                "description": "<strong>Truckeroo</strong><p><a href=\"http://www.truckeroodc.com/www/\" target=\"_blank\">Truckeroo</a> brings dozens of food trucks, live music, and games to half and M Street SE (across from Navy Yard Metro Station) today from 11:00 a.m. to 11:00 p.m.</p>",
+        "marker-symbol": "location",
+        "title": "Abel Tasman Coast Track"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          173.04977416992188,
+          -40.89093668840453
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-symbol": "location",
+        "title": "Routeburn Track"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          168.1670379638672,
+          -44.74063700433039
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-symbol": "location",
+        "title": "Milford Track"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          167.78388977050778,
+          -44.79255634014765
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-symbol": "location",
+        "title": "Kepler Track"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          167.59918212890625,
+          -45.4748180391134
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-symbol": "location",
+        "title": "Rakiura Track"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          168.06129455566406,
+          -46.87333582901025
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-symbol": "location",
+        "title": "Whanganui Journey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.1275634765625,
+          -39.591932136203184
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-symbol": "location",
+        "title": "Round the Mountain Track"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.62881469726562,
+          -39.288608474199414
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-symbol": "location",
+        "title": "Lake Waikaremoana Great Walk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.99386596679688,
+          -38.81028585091164]
+                },
+            }]
+        }
+    });
 newmap.addLayer({
         "id": 'greatwalks-b2tjhc',
         "type": "line",
@@ -99,9 +234,56 @@ newmap.addLayer({
             "line-color": "#ff0000",
             "line-width": 1
         }
+            
     });
-newmap.setLayerZoomRange('greatwalks-b2tjhc', 6, 22); //fix later
+newmap.addLayer({
+        "id": "markers",
+        "type": "symbol",
+        "source": "markers",
+        "layout": {
+            "icon-image": "location",
+            "text-field": "{title}",
+            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+            "text-offset": [0, 0.6],
+            "text-size": 10,
+            "text-anchor": "top"
+        }
+     });
+
+
+
+newmap.on('click', function (e) {
+var features = newmap.queryRenderedFeatures(e.point, { layers: ['markers'] });
+if (features.length) {
+newmap.flyTo({center: features[0].geometry.coordinates, zoom: 10});
+}
 });
+
+
+newmap.setLayerZoomRange('greatwalks-b2tjhc', 8, 22);
+});
+
+var popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false
+});
+
+newmap.on('mousemove', function (e) {
+var features = newmap.queryRenderedFeatures(e.point, { layers: ['markers'] });
+newmap.getCanvas().style.cursor = features.length ? 'pointer' : '';
+    if (!features.length) {
+        popup.remove();
+        return;
+    }
+
+    var feature = features[0];
+
+    popup.setLngLat(feature.geometry.coordinates)
+        .setHTML(feature.properties.title)
+        .addTo(newmap);
+
+});
+
 
       </script>
       </td>
