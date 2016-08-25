@@ -13,6 +13,8 @@
   
   <link href="https://api.mapbox.com/mapbox-gl-js/v0.18.0/mapbox-gl.css" rel="stylesheet">
 
+  
+  <style>.mapboxgl-popup {max-width: 400px; font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;}</style>
 </head><body style="background-image: url(../images/bak.png);">
 <table style="width: 90%; height: 100%; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="0" cellspacing="0">
 
@@ -20,7 +22,8 @@
     <tr>
       <td style="width: 250px; vertical-align: top; text-align: center; background-color: white;">
       <h1><tt><font color="#333333" face="Calibri">Lab 3</font></tt></h1>
-      <br>
+      <span style="font-style: italic; font-family: Calibri; font-weight: bold; color: rgb(51, 51, 51);">Great
+Walks of New Zealand</span><br>
       <br>
       <br>
       <table style="width: 100%;" border="0" cellpadding="0" cellspacing="0">
@@ -53,33 +56,33 @@
       <br>
       <br>
       <br>
+<br>
+      <br>
       <br>
       </span></small></div>
       </td>
       <td style="vertical-align: top; height: 100%; width: 50%;">
-            <style>.mapboxgl-popup {max-width: 400px; font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;}</style>
       <div id="map" style="width: 100%; height: 100%;"></div>
       <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5kcmV3ODQ1NTUiLCJhIjoiY2lydnp2Nzk3MGoza2ZnbTh1b2FoenFqYSJ9.iPSB6vUKQLifDYV570B8zg';
 var map = new mapboxgl.Map({
 container: 'map',
 style: "mapbox://styles/andrew84555/cirwnrt3c003igbmfgvm1zpxv",
-center: [172.6, -41.46],
-zoom: 4.5
+center: [172.6, -41.2],
+zoom: 4.7
 });
       </script>
+      <br>
       </td>
-
-
       <td style="vertical-align: top; height: 100%; width: 50%;">
-      <div id="newmap" style="width: 100%; height: 100%;"></div>
+      <div id="newmap" style="width: 100%; height: 100%;"></div>     
       <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5kcmV3ODQ1NTUiLCJhIjoiY2lydnp2Nzk3MGoza2ZnbTh1b2FoenFqYSJ9.iPSB6vUKQLifDYV570B8zg';
 var newmap = new mapboxgl.Map({
 container: 'newmap',
 style: "mapbox://styles/andrew84555/cis6rl0xc000ggslwb5m52hbv",
-center: [172.6, -41.46],
-zoom: 4.5
+center: [172.6, -41.2],
+zoom: 4.7
 });
 
 newmap.on('load', function () {
@@ -95,7 +98,7 @@ newmap.addSource("markers", {
     {
       "type": "Feature",
       "properties": {
-        "description": "<strong>Truckeroo</strong><p><a href=\"http://www.truckeroodc.com/www/\" target=\"_blank\">Truckeroo</a> brings dozens of food trucks, live music, and games to half and M Street SE (across from Navy Yard Metro Station) today from 11:00 a.m. to 11:00 p.m.</p>",
+        "description": "<a href=\"http://www.doc.govt.nz/parks-and-recreation/places-to-go/nelson-tasman/places/kahurangi-national-park/things-to-do/tracks/heaphy-track/\" target=\"_blank\"><strong>Heaphy Track</strong><p></a>Travel through expansive tussock downs, lush forests and Nikau palms to the roaring seas of the West Coast. </p>",
         "marker-symbol": "location",
         "title": "Heaphy Track"
       },
@@ -110,7 +113,7 @@ newmap.addSource("markers", {
     {
       "type": "Feature",
       "properties": {
-                "description": "<strong>Truckeroo</strong><p><a href=\"http://www.truckeroodc.com/www/\" target=\"_blank\">Truckeroo</a> brings dozens of food trucks, live music, and games to half and M Street SE (across from Navy Yard Metro Station) today from 11:00 a.m. to 11:00 p.m.</p>",
+                "description": "<a href=\"http://www.doc.govt.nz/parks-and-recreation/places-to-go/nelson-tasman/places/abel-tasman-national-park/things-to-do/tracks/abel-tasman-coast-track/\" target=\"_blank\"><strong>Abel Tasman Coast Track</strong><p></a>Blessed with a mild climate, golden beaches and lush coastal native bush, the Abel Tasman Coast Track has it all.</p>",
         "marker-symbol": "location",
         "title": "Abel Tasman Coast Track"
       },
@@ -125,6 +128,7 @@ newmap.addSource("markers", {
     {
       "type": "Feature",
       "properties": {
+                "description": "<a href=\"http://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/tracks/routeburn-track/\" target=\"_blank\"><strong>Routeburn Track</strong><p></a>This is the ultimate alpine adventure, weaving through meadows, reflective tarns and alpine gardens. You'll be rewarded with spectacular vistas over vast mountain ranges and valleys.</p>",
         "marker-symbol": "location",
         "title": "Routeburn Track"
       },
@@ -139,6 +143,7 @@ newmap.addSource("markers", {
     {
       "type": "Feature",
       "properties": {
+                "description": "<a href=\"http://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/tracks/milford-track/\" target=\"_blank\"><strong>Milford Track</strong><p></a>Experience 'the finest walk in the world' as you retrace the steps of early explorers on the world-renowed Milford Track. Take a journey along valleys carved by glaciers, wander through ancient rainforests and admire cascading waterfalls.</p>",
         "marker-symbol": "location",
         "title": "Milford Track"
       },
@@ -153,6 +158,7 @@ newmap.addSource("markers", {
     {
       "type": "Feature",
       "properties": {
+                "description": "<a href=\"http://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/tracks/kepler-track/\" target=\"_blank\"><strong>Kepler Track</strong><p></a>Vast tussock-covered ridgelines and spectacular alpine vistas contrast with peaceful lakeside and valley beech forest in this wilderness adventure.</p>",
         "marker-symbol": "location",
         "title": "Kepler Track"
       },
@@ -167,6 +173,7 @@ newmap.addSource("markers", {
     {
       "type": "Feature",
       "properties": {
+                "description": "<a href=\"http://www.doc.govt.nz/parks-and-recreation/places-to-go/southland/places/stewart-island-rakiura/rakiura-national-park/\" target=\"_blank\"><strong>Rakiura Track</strong><p></a>Rakiura National Park is located on Stewart Island/Rakiura. It encompasses a network of former nature reserves, scenic reserves, and state forest areas.</p>",
         "marker-symbol": "location",
         "title": "Rakiura Track"
       },
@@ -181,6 +188,7 @@ newmap.addSource("markers", {
     {
       "type": "Feature",
       "properties": {
+                "description": "<a href=\"http://www.doc.govt.nz/parks-and-recreation/places-to-go/manawatu-whanganui/places/whanganui-national-park/things-to-do/tracks/whanganui-journey/\" target=\"_blank\"><strong>Whanganui Journey</strong><p></a>Explore the scenic beauty paddling up the Whanganui River, a landscape of remote hills and bush clad valleys.</p>",
         "marker-symbol": "location",
         "title": "Whanganui Journey"
       },
@@ -195,6 +203,7 @@ newmap.addSource("markers", {
     {
       "type": "Feature",
       "properties": {
+                "description": "<a href=\"http://www.doc.govt.nz/parks-and-recreation/places-to-go/central-north-island/places/tongariro-national-park/things-to-do/tracks/round-the-mountain-track/\" target=\"_blank\"><strong>Round the Mountain Track</strong><p></a>The Round the Mountain Track showcases the varied volcanic landscapes and alpine vegetation on the flanks of the active volcano Mount Ruapehu. It's a more remote alternative to the Tongariro Northern Circuit Great Walk.</p>",
         "marker-symbol": "location",
         "title": "Round the Mountain Track"
       },
@@ -209,6 +218,7 @@ newmap.addSource("markers", {
     {
       "type": "Feature",
       "properties": {
+                "description": "<a href=\"http://www.doc.govt.nz/parks-and-recreation/places-to-go/east-coast/places/te-urewera/things-to-do/tracks/lake-waikaremoana-great-walk/\" target=\"_blank\"><strong>Lake Waikaremoana Great Walk</strong><p></a>Trace the shoreline of Lake Waikaremoana, the 'sea of rippling waters.' Pass giant podocarp trees and remote beaches, and enjoy breathtaking views from Panekire Bluff.</p>",
         "marker-symbol": "location",
         "title": "Lake Waikaremoana Great Walk"
       },
@@ -244,7 +254,7 @@ newmap.addLayer({
             "icon-image": "location",
             "text-field": "{title}",
             "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-            "text-offset": [0, 0.6],
+            "text-offset": [0, 1],
             "text-size": 10,
             "text-anchor": "top"
         }
@@ -261,6 +271,7 @@ newmap.flyTo({center: features[0].geometry.coordinates, zoom: 10});
 
 
 newmap.setLayerZoomRange('greatwalks-b2tjhc', 8, 22);
+newmap.setLayerZoomRange('markers', 0, 8);
 });
 
 var popup = new mapboxgl.Popup({
@@ -279,16 +290,15 @@ newmap.getCanvas().style.cursor = features.length ? 'pointer' : '';
     var feature = features[0];
 
     popup.setLngLat(feature.geometry.coordinates)
-        .setHTML(feature.properties.title)
+        .setHTML(feature.properties.description)
         .addTo(newmap);
 
 });
 
 
       </script>
+      <br>
       </td>
-
-
     </tr>
   </tbody>
 </table>
