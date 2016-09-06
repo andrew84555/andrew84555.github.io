@@ -85,9 +85,10 @@ map.on('load', function() {
         }
     });  
 
+//set colours of the zoom levels - todo: use green, attribution for data
     var layers = [
-        [150, '#f28cb1'],
-        [20, '#f1f075'],
+        [100, '#f28cb1'],
+        [10, '#f1f075'],
         [0, '#51bbd6']
     ];
 
@@ -160,7 +161,7 @@ map.flyTo({center: features[0].geometry.coordinates, zoom: map.getZoom() + 1.5})
 map.on('click', function (e) {
 var features = map.queryRenderedFeatures(e.point, { layers: ['unclustered-points'] });
 if (features.length) {
-map.flyTo({center: features[0].geometry.coordinates, zoom: 13});
+map.flyTo({center: features[0].geometry.coordinates, zoom: 15});
 }
 });
 
