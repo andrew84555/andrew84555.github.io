@@ -4,9 +4,8 @@
 
   
   <meta content="text/html;charset=ISO-8859-1" http-equiv="Content-Type">
-<link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css">
-<link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico">
-<script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.css' rel='stylesheet' />
     <style>
       html, body, #map {
         height: 100%;
@@ -15,14 +14,14 @@
       }
     </style>
   <meta http-equiv="content-type" content="text/html; utf-8"><title>Project</title></head><body style="background-image: url(../images/bak.png);">
-<table style="width: 80%; height: 80%; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="0" cellspacing="0"> <!--use this for the main height (80-100%)-->
+<table style="width: 80%; height: 100%; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="0" cellspacing="0"> <!--use this for the main height (80-100%)-->
 
   <tbody>
     <tr>
       <td style="width: 250px; vertical-align: top; text-align: center; background-color: white;">
       <h1><tt><font color="#333333" face="Calibri">Project</font></tt></h1>
       
-      <h1><small><small><big><tt><font><small><small><big><tt><font color="#333333" face="Calibri"><span style="font-style: italic;">Placeholder text</span><br>
+      <h1><small><small><big><tt><font><small><small><big><tt><font color="#333333" face="Calibri"><span style="font-style: italic;">Green roof buildings in Chicago</span><br>
 </font></tt></big></small></small></font></tt></big></small></small></h1>
 
       <br>
@@ -52,7 +51,108 @@
       </span></small></div>
       </td>
       <td style="vertical-align: top; height: 100%; width: 80%;">
-         <br>
+<div id="map" style="width: 100%; height: 100%;"></div>     
+      <script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiYW5kcmV3ODQ1NTUiLCJhIjoiY2lydnp2Nzk3MGoza2ZnbTh1b2FoenFqYSJ9.iPSB6vUKQLifDYV570B8zg';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/dark-v9',
+center: [-87.62735617, 41.85837259],
+zoom: 11});
+
+map.on('load', function() {
+
+
+    map.addSource("dat", {
+        type: "geojson",
+        data: "green.geojson",
+        cluster: true,
+        clusterMaxZoom: 15,
+        clusterRadius: 20
+    });
+
+    map.addLayer({
+        "id": 'unclustered-points',
+        "type": "symbol",
+        "source": "dat",
+        "layout": {
+            "icon-image": "marker-15",
+            "text-field": "{STREET_NAME} {STREET_TYPE}",
+            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+            "text-offset": [0, 1],
+            "text-size": 10,
+            "text-anchor": "top"
+        }
+    });  
+
+    var layers = [
+        [150, '#f28cb1'],
+        [20, '#f1f075'],
+        [0, '#51bbd6']
+    ];
+
+    layers.forEach(function (layer, i) {
+        map.addLayer({
+            "id": "cluster-" + i,
+            "type": "circle",
+            "source": "dat",
+            "paint": {
+                "circle-color": layer[1],
+                "circle-radius": 18,
+            },
+            "filter": i === 0 ?
+                [">=", "point_count", layer[0]] :
+                ["all",
+                    [">=", "point_count", layer[0]],
+                    ["<", "point_count", layers[i - 1][0]]]
+        });
+    });
+
+    map.addLayer({
+        "id": "cluster-count",
+        "type": "symbol",
+        "source": "dat",
+        "layout": {
+            "text-field": "{point_count}",
+            "text-font": [
+                "DIN Offc Pro Medium",
+                "Arial Unicode MS Bold"
+            ],
+            "text-size": 12
+        }
+    });
+
+    //interactivity stuff
+
+
+});
+
+// When a click event occurs near a place, open a popup at the location of
+// the feature, with description HTML from its properties.
+map.on('click', function (e) {
+    var features = map.queryRenderedFeatures(e.point, { layers: ['unclustered-points'] });
+
+    if (!features.length) {
+        return;
+    }
+
+    var feature = features[0];
+
+    // Populate the popup and set its coordinates
+    // based on the feature found.
+    var popup = new mapboxgl.Popup()
+        .setLngLat(feature.geometry.coordinates)
+        .setHTML('<h4>'+feature.properties.FULL_ADDRESS_RANGE+'</h4>'+'<p><i> Vegetated area: '+feature.properties.VEGETATED_SQFT+' sq ft<br>Total area: '+feature.properties.TOTAL_ROOF_SQFT+' sq ft</p></i>')
+        .addTo(map);
+});
+
+// Use the same approach as above to indicate that the symbols are clickable
+// by changing the cursor style to 'pointer'.
+map.on('mousemove', function (e) {
+    var features = map.queryRenderedFeatures(e.point, { layers: ['unclustered-points'] });
+    map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
+});
+</script>
 </td>
     </tr>
   </tbody>
@@ -63,7 +163,7 @@
   <tbody>
     <tr>
       <td style="vertical-align: top; background-color: white; text-align: center;"><font face="Calibri"><br>
-771 Project
+771 Project: 'Greenroof' buildings in Chicago
       </font></td>
     </tr>
   </tbody>
