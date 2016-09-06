@@ -142,7 +142,7 @@ map.on('click', function (e) {
     // based on the feature found.
     var popup = new mapboxgl.Popup()
         .setLngLat(feature.geometry.coordinates)
-        .setHTML('<h4>'+feature.properties.FULL_ADDRESS_RANGE+'</h4>'+'<p><i> Vegetated area: '+feature.properties.VEGETATED_SQFT+' sq ft<br>Total area: '+feature.properties.TOTAL_ROOF_SQFT+' sq ft<br>Orientation: '+feature.properties.PRE_DIR+'<br>Percentage coverage: '+Math.round((feature.properties.VEGETATED_SQFT/feature.properties.TOTAL_ROOF_SQFT)*100)+'%</p></i>').addTo(map);
+        .setHTML('<h4>'+feature.properties.FULL_ADDRESS_RANGE+'</h4>'+'<p><i> Vegetated area: '+Math.round(feature.properties.VEGETATED_SQFT*0.092903)+' sq m<br>Total area: '+Math.round(feature.properties.TOTAL_ROOF_SQFT*0.092903)+' sq m<br>Percent coverage: '+Math.round((feature.properties.VEGETATED_SQFT/feature.properties.TOTAL_ROOF_SQFT)*100)+'%<br>Orientation: '+feature.properties.PRE_DIR+'</p></i>').addTo(map);
 });
 
 // Use the same approach as above to indicate that the symbols are clickable
