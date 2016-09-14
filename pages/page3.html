@@ -16,7 +16,7 @@
   
   <style>.mapboxgl-popup {max-width: 400px; font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;}</style>
 </head><body style="background-image: url(../images/bak.png);">
-<table style="width: 90%; height: 100%; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="0" cellspacing="0">
+<table style="width: 100%; height: 100%; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="0" cellspacing="0">
 
   <tbody>
     <tr>
@@ -32,13 +32,16 @@ Walks of New Zealand</span><br>
             <td style="vertical-align: top; background-color: white;"> <a href="../index.html"><font color="#333333" face="Calibri"><button type="button"> Home</button> </font></a></td>
           </tr>
           <tr align="center">
-            <td valign="top"><a href="page2.html"><button type="button">Lab 2</button></a></td>
+            <td valign="top"><a href="page2.html"><button type="button">Lab
+2</button></a></td>
           </tr>
           <tr align="center">
-            <td valign="top"><a href="page4.html"><button type="button">Lab 4</button></a></td>
+            <td valign="top"><a href="page4.html"><button type="button">Lab
+4</button></a></td>
           </tr>
           <tr align="center">
-            <td valign="top"><a href="page5.html"><button type="button">Lab 5</button></a></td>
+            <td valign="top"><a href="page5.html"><button type="button">Lab
+5</button></a></td>
           </tr>
           <tr align="center">
             <td valign="top"><a href="project.html"><button type="button">Project</button></a></td>
@@ -52,7 +55,13 @@ Walks of New Zealand</span><br>
       <br>
       <br>
       <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
 <br>
+      <br>
       <br>
       <br>
       </span></small></div>
@@ -64,21 +73,21 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYW5kcmV3ODQ1NTUiLCJhIjoiY2lydnp2Nzk3MGoza2Znb
 var map = new mapboxgl.Map({
 container: 'map',
 style: "mapbox://styles/andrew84555/cirwnrt3c003igbmfgvm1zpxv",
-center: [172.6, -41.2],
-zoom: 4.7
+center: [172.6, -42.4],
+zoom: 5.35
 });
       </script>
       <br>
       </td>
       <td style="vertical-align: top; height: 100%; width: 50%;">
-      <div id="newmap" style="width: 100%; height: 100%;"></div>     
+      <div id="newmap" style="width: 100%; height: 100%;"></div>  
       <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5kcmV3ODQ1NTUiLCJhIjoiY2lydnp2Nzk3MGoza2ZnbTh1b2FoenFqYSJ9.iPSB6vUKQLifDYV570B8zg';
 var newmap = new mapboxgl.Map({
 container: 'newmap',
 style: "mapbox://styles/andrew84555/cis6rl0xc000ggslwb5m52hbv",
-center: [172.6, -41.2],
-zoom: 4.7
+center: [172.6, -42.4],
+zoom: 5.35
 });
 
 newmap.on('load', function () {
@@ -248,11 +257,6 @@ newmap.addLayer({
         "source": "markers",
         "layout": {
             "icon-image": "location",
-            "text-field": "{title}",
-            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-            "text-offset": [0, 1],
-            "text-size": 10,
-            "text-anchor": "top"
         }
      });
 
@@ -299,7 +303,7 @@ newmap.getCanvas().style.cursor = features.length ? 'pointer' : '';
   </tbody>
 </table>
 
-<table style="text-align: left; width: 90%; height: 50%; margin-left: auto; margin-right: auto; background-color: white;" border="0" cellpadding="0" cellspacing="0">
+<table style="text-align: left; width: 100%; height: 50%; margin-left: auto; margin-right: auto; background-color: white;" border="0" cellpadding="0" cellspacing="0">
 
   <tbody>
     <tr>
@@ -311,7 +315,8 @@ newmap.getCanvas().style.cursor = features.length ? 'pointer' : '';
       </div>
       </td>
       <td style="vertical-align: top;"><br>
-      <div style="text-align: center;"><span style="font-style: italic; font-family: Calibri;">Map 2: Mapbox Studio and GL JS</span><br>
+      <div style="text-align: center;"><span style="font-style: italic; font-family: Calibri;">Map 2: Mapbox Studio
+and GL JS</span><br>
       <br>
       </div>
       </td>
