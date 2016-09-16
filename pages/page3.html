@@ -260,7 +260,18 @@ newmap.addLayer({
         }
      });
 
-
+newmap.addLayer({
+        "id": "labels",
+        "type": "symbol",
+        "source": "markers",
+        "layout": {
+            "text-field": "{title}",
+            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+            "text-offset": [0, 1],
+            "text-size": 15,
+            "text-anchor": "top"
+        }
+     });
 
 newmap.on('click', function (e) {
 var features = newmap.queryRenderedFeatures(e.point, { layers: ['markers'] });
@@ -272,7 +283,10 @@ newmap.flyTo({center: features[0].geometry.coordinates, zoom: 10});
 
 newmap.setLayerZoomRange('greatwalks-b2tjhc', 8, 22);
 newmap.setLayerZoomRange('markers', 0, 8);
+newmap.setLayerZoomRange('labels', 8, 22);
 });
+
+//mouseover stuff
 
 var popup = new mapboxgl.Popup({
     closeButton: false,
