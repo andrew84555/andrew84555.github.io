@@ -13,9 +13,8 @@
         height: 100%;
         padding: 0;
         margin: 0;
-      }
-      .info {
-    width: 310px;
+  }
+  .info {
     padding: 6px 8px;
     font: 14px/16px Arial, Helvetica, sans-serif;
     background: white;
@@ -90,11 +89,12 @@
 
 // set colour as function of int d
     function getColor(d) {
-    return d > 40   ? '#d7191c' :
-           d > 15   ? '#fdae61' :
-           d > 7    ? '#ffffc0' :
-           d > 2    ? '#a6d96a' :
-                      '#1a9641';
+    return d > 50   ? '#ff3300' :
+           d > 20   ? '#ff751a' :
+           d > 10   ? '#ffa366' :
+           d > 5    ? '#ffc299' :
+           d > 1    ? '#fff0e6' :
+                      '#ffffff';
 }
 
 //style the hexbins and select the colour
@@ -161,8 +161,8 @@ info.onAdd = function (map) {
 // method that we will use to update the control based on feature properties passed
 info.update = function (props) {
     this._div.innerHTML = '<h4>Auckland Structure Fires</h4>' +  (props ?
-        '<b><i>Number of structure fires reported: ' + props.NUMPOINTS + ' fires <br><br></b></i>'
-        : '<b><i>Hover to show number of structure fires   <br><br/></b></i>');
+        '<b><i>Number of structural fires reported:<br>' + props.NUMPOINTS + ' fires <br><br></b></i>'
+        : '<b><i>Hover to show number of structure fires   <br><br/><br></b></i>');
 };
 
 info.addTo(map);
@@ -172,7 +172,7 @@ var legend = L.control({position: 'bottomright'});
 legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = [0, 2, 7, 15, 40],
+        grades = [0, 1, 5, 10, 20, 50],
         labels = [];
 
     // loop through our density intervals and generate a label with a colored square for each interval
