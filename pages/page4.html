@@ -87,14 +87,14 @@
     maxZoom: 19}).addTo(map);
     
 
-// set colour as function of int d
+// set colour as function of int d 
     function getColor(d) {
-    return d > 50   ? '#ff3300' :
-           d > 20   ? '#ff751a' :
-           d > 10   ? '#ffa366' :
-           d > 5    ? '#ffc299' :
-           d > 1    ? '#fff0e6' :
-                      '#ffffff';
+    return d > 60   ? '#BF0F00' :
+           d > 30   ? '#CB3D18' :
+           d > 15   ? '#D86B30' :
+           d > 7    ? '#E59949' :
+           d > 2    ? '#F2C761' :
+                      '#FFF67A';
 }
 
 //style the hexbins and select the colour
@@ -172,7 +172,7 @@ var legend = L.control({position: 'bottomright'});
 legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = [0, 1, 5, 10, 20, 50],
+        grades = [0, 2, 7, 15, 30, 60],
         labels = [];
 
     // loop through our density intervals and generate a label with a colored square for each interval
