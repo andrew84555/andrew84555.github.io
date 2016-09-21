@@ -30,14 +30,15 @@ body * {
     position: absolute;
     top: 0;
     bottom: 0;
+    height: 90%;
     width: 100%;
 }
 </style>
   
   <meta http-equiv="content-type" content="text/html; utf-8"><title>Project</title></head><body style="background-image: url(../images/bak.png);">
-  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.0.1/mapbox-gl-compare.js'></script>
-<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.0.1/mapbox-gl-compare.css' type='text/css' />
+
 <table style="width: 100%; height: 90%; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="0" cellspacing="0">
+
 
 <!--use this for the main height (80-100%)--> <tbody>
     <tr>
@@ -45,8 +46,7 @@ body * {
       <h1><tt><font color="#333333" face="Calibri">771 Project</font></tt></h1>
       <h1><small><small><big><tt><font><small><small><big><tt><font color="#333333" face="Calibri"><span style="font-style: italic;">Green
 roof buildings in Chicago<br>
-      </span><small> Data: <a href="https://data.cityofchicago.org/">Chicago
-Data Portal</a> © 2016</small> </font></tt></big></small></small></font></tt></big></small></small></h1>
+      </span> </font></tt></big></small></small></font></tt></big></small></small></h1>
       
       <table style="width: 100%;" border="0" cellpadding="0" cellspacing="0">
         <tbody>
@@ -73,12 +73,14 @@ Data Portal</a> © 2016</small> </font></tt></big></small></small></font></tt></b
       </table>
       <br>
       <a href="http://www.greenroofs.com/projects/pview.php?id=21"><img src="http://www.greenroofs.com/projects/chichall/chichall1.jpg" alt="image of green roof" style="border: 0px solid ; width: 350px; height: 263px;"></a><br>
-      <div style="text-align: center;"><small><span style="font-family: Calibri;"><small><big>Roof of the Chicago City Hall</big><br>
-Image credit: Roofmeadow, inc. <a href="http://www.roofmeadow.com/" target="_blank">www.roofmeadow.com</a></small><br>
-      </span></small></div>
+      <div style="text-align: center;"><small><span style="font-family: Calibri;"><big>Roof of the Chicago City Hall</big><br>
+<br><br><br>
+<small> Left map: Mapbox Light-v9 <br> Right map: Mapbox Satellite-v9 <br> Image credit: Roofmeadow, inc. <a href="http://www.roofmeadow.com/" target="_blank">www.roofmeadow.com</a> <br> Data: <a href="https://data.cityofchicago.org/">Chicago
+Data Portal</a> © 2016</small></span></small></div>
       </td>
       <td style="vertical-align: top; height: 100%; width: 80%;">
-
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.0.1/mapbox-gl-compare.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.0.1/mapbox-gl-compare.css' type='text/css' />
 
       <div id='before' class='map'></div>
 <div id='after' class='map'></div>
@@ -219,12 +221,12 @@ beforeMap.flyTo({center: features[0].geometry.coordinates, zoom: 15});
   </tbody>
 </table>
 
-<table style="text-align: left; width: 100%; height: 10%; margin-left: auto; margin-right: auto; color: black; font-style: italic;" border="0" cellpadding="0" cellspacing="0">
+<table style="text-align: left; width: 100%; height: 10%; margin-left: auto; margin-right: auto; color: black;" border="0" cellpadding="5" cellspacing="0">
 
   <tbody>
     <tr>
-      <td style="vertical-align: top; background-color: white; text-align: center;"><font face="Calibri"><br>
-771 Project: 'Greenroof' buildings in Chicago </font></td>
+      <td style="vertical-align: top; background-color: white; text-align: left;"><font face="Calibri"><br>
+Chicago has the most 'green roof' area of any US city, following an intiative by the EPA to combat the urban heat island effect while improving air quality. The first building to participate in the project was the City Hall, where it succeeded in reducing roof temperatures by over 35 degrees, while saving around $5000 USD in energy costs. It was soon followed by many other major buldings, including Millenium Park and the Soldier Field football stadium. The city now has over 500 green rooftops, covering more than 7 million sq ft of roof area.</font></td>
     </tr>
   </tbody>
 </table>
