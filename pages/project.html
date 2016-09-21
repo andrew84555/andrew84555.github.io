@@ -1,70 +1,114 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html><head>
 
-
-
   
   <meta content="text/html;charset=ISO-8859-1" http-equiv="Content-Type">
-    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.js"></script>
-    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.css" rel="stylesheet">
-    <style>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.24.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.24.0/mapbox-gl.css' rel='stylesheet' />
+
+  
+  <style>
       html, body, #map {
         height: 100%;
         padding: 0;
         margin: 0;
       }
-    </style>
+      body {
+    overflow: hidden;
+}
+
+body * {
+   -webkit-touch-callout: none;
+     -webkit-user-select: none;
+        -moz-user-select: none;
+         -ms-user-select: none;
+             user-select: none;
+}
+
+.map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+</style>
+  
   <meta http-equiv="content-type" content="text/html; utf-8"><title>Project</title></head><body style="background-image: url(../images/bak.png);">
-<table style="width: 80%; height: 100%; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="0" cellspacing="0"> <!--use this for the main height (80-100%)-->
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.0.1/mapbox-gl-compare.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.0.1/mapbox-gl-compare.css' type='text/css' />
+<table style="width: 100%; height: 90%; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="0" cellspacing="0">
 
-  <tbody>
+<!--use this for the main height (80-100%)--> <tbody>
     <tr>
-      <td style="width: 250px; vertical-align: top; text-align: center; background-color: white;">
-      <h1><tt><font color="#333333" face="Calibri">Project</font></tt></h1>
+      <td style="width: 350px; vertical-align: top; text-align: center; background-color: white;">
+      <h1><tt><font color="#333333" face="Calibri">771 Project</font></tt></h1>
+      <h1><small><small><big><tt><font><small><small><big><tt><font color="#333333" face="Calibri"><span style="font-style: italic;">Green
+roof buildings in Chicago<br>
+      </span><small> Data: <a href="https://data.cityofchicago.org/">Chicago
+Data Portal</a> © 2016</small> </font></tt></big></small></small></font></tt></big></small></small></h1>
       
-      <h1><small><small><big><tt><font><small><small><big><tt><font color="#333333" face="Calibri"><span style="font-style: italic;">Green roof buildings in Chicago<br></span><small> Data: <a href="https://data.cityofchicago.org/">Chicago Data Portal</a> © 2016</small>
-</font></tt></big></small></small></font></tt></big></small></small></h1>
-
-      <br>
       <table style="width: 100%;" border="0" cellpadding="0" cellspacing="0">
         <tbody>
           <tr align="center">
             <td style="vertical-align: top; background-color: white;"> <a href="../index.html"><font color="#333333" face="Calibri"><button type="button">Home</button> </font></a></td>
           </tr>
           <tr align="center">
-            <td valign="top"><a href="page2.html"><button type="button">Lab 2</button></a></td>
+            <td valign="top"><a href="page2.html"><button type="button">Lab
+2</button></a></td>
           </tr>
           <tr align="center">
-            <td valign="top"><a href="page3.html"><button type="button">Lab 3</button></a></td>
+            <td valign="top"><a href="page3.html"><button type="button">Lab
+3</button></a></td>
           </tr>
           <tr align="center">
-            <td valign="top"><a href="page4.html"><button type="button">Lab 4</button></a></td>
+            <td valign="top"><a href="page4.html"><button type="button">Lab
+4</button></a></td>
           </tr>
           <tr align="center">
-            <td valign="top"><a href="page5.html"><button type="button">Lab 5</button></a></td>
+            <td valign="top"><a href="page5.html"><button type="button">Lab
+5</button></a></td>
           </tr>
         </tbody>
       </table>
-      <a href="http://www.freepik.com/"><img title="Selected by freepik" style="border: 0px solid ; width: 250px; height: 250px;" alt="http://www.freepik.com" src="../images/O9FG4R0.jpg" hspace="0" vspace="0"></a>
-      <div style="text-align: center;"><small><span style="font-family: Calibri;"><small>Image used under license, freepik
-2016</small><br>
-
+      <br>
+      <a href="http://www.greenroofs.com/projects/pview.php?id=21"><img src="http://www.greenroofs.com/projects/chichall/chichall1.jpg" alt="image of green roof" style="border: 0px solid ; width: 350px; height: 263px;"></a><br>
+      <div style="text-align: center;"><small><span style="font-family: Calibri;"><small><big>Roof of the Chicago City Hall</big><br>
+Image credit: Roofmeadow, inc. <a href="http://www.roofmeadow.com/" target="_blank">www.roofmeadow.com</a></small><br>
       </span></small></div>
       </td>
       <td style="vertical-align: top; height: 100%; width: 80%;">
-<div id="map" style="width: 100%; height: 100%;"></div>     
-      <script>
+
+
+      <div id='before' class='map'></div>
+<div id='after' class='map'></div>
+
+<script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5kcmV3ODQ1NTUiLCJhIjoiY2lydnp2Nzk3MGoza2ZnbTh1b2FoenFqYSJ9.iPSB6vUKQLifDYV570B8zg';
-var map = new mapboxgl.Map({
-container: 'map',
-style: 'mapbox://styles/mapbox/light-v9',
-center: [-87.62735617, 41.85837259],
-zoom: 9});
+var beforeMap = new mapboxgl.Map({
+    container: 'before',
+    style: 'mapbox://styles/mapbox/light-v9',
+center: [-86.8, 41.85837259],
+zoom: 9
+});
 
-map.on('load', function() {
+var afterMap = new mapboxgl.Map({
+    container: 'after',
+    style: 'mapbox://styles/mapbox/satellite-v9',
+center: [-86.8, 41.85837259],
+zoom: 9
+});
+
+var map = new mapboxgl.Compare(beforeMap, afterMap);
 
 
-    map.addSource("dat", {
+
+
+
+beforeMap.on('load', function() {
+
+
+    beforeMap.addSource("dat", {
         type: "geojson",
         data: "green.geojson",
         cluster: true,
@@ -72,7 +116,7 @@ map.on('load', function() {
         clusterRadius: 20
     });
 
-    map.addLayer({
+    beforeMap.addLayer({
         "id": 'unclustered-points',
         "type": "symbol",
         "source": "dat",
@@ -95,7 +139,7 @@ map.on('load', function() {
 
 //check if within radius
     layers.forEach(function (layer, i) {
-        map.addLayer({
+        beforeMap.addLayer({
             "id": "cluster-" + i,
             "type": "circle",
             "source": "dat",
@@ -112,7 +156,7 @@ map.on('load', function() {
     });
 
 //write the number of points within cluster
-    map.addLayer({
+    beforeMap.addLayer({
         "id": "cluster-count",
         "type": "symbol",
         "source": "dat",
@@ -131,14 +175,14 @@ map.on('load', function() {
 
 });
 // Make both clickable
-map.on('mousemove', function (e) {
-    var features = map.queryRenderedFeatures(e.point, { layers: ['unclustered-points', 'cluster-count'] });
-    map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
+beforeMap.on('mousemove', function (e) {
+    var features = beforeMap.queryRenderedFeatures(e.point, { layers: ['unclustered-points', 'cluster-count'] });
+    beforeMap.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
 });
 
 // behaivour from clicking for single feature
-map.on('click', function (e) {
-    var features = map.queryRenderedFeatures(e.point, { layers: ['unclustered-points'] });
+beforeMap.on('click', function (e) {
+    var features = beforeMap.queryRenderedFeatures(e.point, { layers: ['unclustered-points'] });
 
     if (!features.length) {
         return;
@@ -149,37 +193,38 @@ map.on('click', function (e) {
     // do the caluculations for the popup, to m2 rather than sq ft since we are in NZ
     var popup = new mapboxgl.Popup()
         .setLngLat(feature.geometry.coordinates)
-        .setHTML('<h4>'+feature.properties.FULL_ADDRESS_RANGE+'</h4>'+'<p><i> Vegetated area: '+Math.round(feature.properties.VEGETATED_SQFT*0.092903)+' m<sup>2</sup><br>Total area: '+Math.round(feature.properties.TOTAL_ROOF_SQFT*0.092903)+' m<sup>2</sup><br>Percent coverage: '+Math.round((feature.properties.VEGETATED_SQFT/feature.properties.TOTAL_ROOF_SQFT)*100)+'%<br>Orientation: '+feature.properties.PRE_DIR+'</p></i>').addTo(map);
+        .setHTML('<h4>'+feature.properties.FULL_ADDRESS_RANGE+'</h4>'+'<p><i> Vegetated area: '+Math.round(feature.properties.VEGETATED_SQFT*0.092903)+' m<sup>2</sup><br>Total area: '+Math.round(feature.properties.TOTAL_ROOF_SQFT*0.092903)+' m<sup>2</sup><br>Percent coverage: '+Math.round((feature.properties.VEGETATED_SQFT/feature.properties.TOTAL_ROOF_SQFT)*100)+'%<br>Orientation: '+feature.properties.PRE_DIR+'</p></i>').addTo(beforeMap);
 });
 
-map.on('click', function (e) {
-var features = map.queryRenderedFeatures(e.point, { layers: ['cluster-count'] });
+beforeMap.on('click', function (e) {
+var features = beforeMap.queryRenderedFeatures(e.point, { layers: ['cluster-count'] });
 if (features.length) {
-map.flyTo({center: features[0].geometry.coordinates, zoom: map.getZoom() + 1.5});
+beforeMap.flyTo({center: features[0].geometry.coordinates, zoom: beforeMap.getZoom() + 1.5});
 }
 });
 
-map.on('click', function (e) {
-var features = map.queryRenderedFeatures(e.point, { layers: ['unclustered-points'] });
+beforeMap.on('click', function (e) {
+var features = beforeMap.queryRenderedFeatures(e.point, { layers: ['unclustered-points'] });
 if (features.length) {
-map.flyTo({center: features[0].geometry.coordinates, zoom: 15});
+beforeMap.flyTo({center: features[0].geometry.coordinates, zoom: 15});
 }
 });
 
-</script>
+
+
+      </script>
       <br>
-</td>
+      </td>
     </tr>
   </tbody>
 </table>
 
-<table style="text-align: left; width: 80%; height: 10%; margin-left: auto; margin-right: auto; color: black; font-style: italic;" border="0" cellpadding="0" cellspacing="0">
+<table style="text-align: left; width: 100%; height: 10%; margin-left: auto; margin-right: auto; color: black; font-style: italic;" border="0" cellpadding="0" cellspacing="0">
 
   <tbody>
     <tr>
       <td style="vertical-align: top; background-color: white; text-align: center;"><font face="Calibri"><br>
-771 Project: 'Greenroof' buildings in Chicago
-      </font></td>
+771 Project: 'Greenroof' buildings in Chicago </font></td>
     </tr>
   </tbody>
 </table>
