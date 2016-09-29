@@ -2,28 +2,53 @@
 <html><head>
 
 
+
   
-  <meta content="text/html;charset=ISO-8859-1" http-equiv="Content-Type">
-<link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css">
-<link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico">
-<script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="http://npmcdn.com/leaflet@0.7.7/dist/leaflet.css">
+  <script src="http://npmcdn.com/leaflet@0.7.7/dist/leaflet.js"></script>
     <style>
       html, body, #map {
         height: 100%;
         padding: 0;
         margin: 0;
-      }
+  }
+  .info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+.info h4 {
+    margin: 0 0 5px;
+    color:  #1c2833;
+}
+.legend {
+    line-height: 26px;
+    color: #1c2833;
+}
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+
     </style>
-  <meta http-equiv="content-type" content="text/html; utf-8"><title>Lab 5</title></head><body style="background-image: url(../images/bak.png);">
-<table style="width: 80%; height: 80%; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="0" cellspacing="0"> <!--use this for the main height (80-100%)-->
+  <meta http-equiv="content-type" content="text/html; utf-8"><title>Lab 5: Twitter Data Hexbin</title></head><body style="background-image: url(../images/bak.png);">
+<table style="width: 90%; height: 97%; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="0" cellspacing="0"> <!--use this for the main height (80-100%)-->
 
   <tbody>
     <tr>
       <td style="width: 250px; vertical-align: top; text-align: center; background-color: white;">
       <h1><tt><font color="#333333" face="Calibri">Lab 5</font></tt></h1>
       
-      <h1><small><small><big><tt><font><small><small><big><tt><font color="#333333" face="Calibri"><span style="font-style: italic;">Placeholder text</span><br>
-</font></tt></big></small></small></font></tt></big></small></small></h1>
+      <h1><small><tt><font><small><small><tt><font color="#333333" face="Calibri"><span style="font-style: italic;">Maori vs Random tweets, 2012 to Date</span><br>
+</font></tt></small></small></font></tt></small></h1>
 
       <br>
       <table style="width: 100%;" border="0" cellpadding="0" cellspacing="0">
@@ -51,19 +76,163 @@
 
       </span></small></div>
       </td>
-      <td style="vertical-align: top; height: 100%; width: 80%;">
-         <br>
+      <td style="vertical-align: top; height: 100%; width: 100%;">
+         <div id="mapid" style="width: 100%; height: 100%;"></div>
+<script type="text/javascript" src="twitter.js"></script>
+<script>
+  var map = L.map('mapid').setView([-41, 175], 6);
+  L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> | &copy; <a href="http://cartodb.com/attributions">CartoDB</a> | Twitter data: &copy; <a href="https://twitter.com/mattzook">@mattzook</a>, <a href="http://www.floatingsheep.org/p/dolly.html"> DOLLY </a> and <a href="http://www.floatingsheep.org"> Floating Sheep <a/>',
+    subdomains: 'abcd',
+    maxZoom: 19}).addTo(map);
+    
+
+// set colour as function of int d
+    function getColor(d) {
+    return d > 1.1   ? '#ff2a5b' :
+           d > 0.9   ? '#832aff' :
+           d > 0.0  ? '#83ff5b' :
+           d == 0    ? '#efff3e' :
+                      '#1a9641';
+}
+
+    function getOp(d) {
+    return d > 1.1   ? '0.7' :
+           d > 0.9   ? '0.7' :
+           d > 0.0  ? '0.7' :
+           d == 0    ? '0' :
+                      '0.7';
+}
+
+// set colour as function of int d
+    function getColor2(d) {
+    return d > 1.1   ? '#ff2a5b' :
+           d > 0.9   ? '#ff2a5b' :
+           d > 0.0  ? '#832aff' :
+           d == 0    ? '#83ff5b' :
+                      '#FFFFFF';
+}
+
+//style the hexbins and select the colour
+function style(feature) {
+    return {
+        fillColor: getColor(feature.properties.RATIO),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        fillOpacity: getOp(feature.properties.RATIO)
+   };
+}
+ 
+var geojson;
+//listeners which trigger for a event
+
+function highlightFeature(e) {
+    var layer = e.target;
+
+    layer.setStyle({
+        weight: 3,
+        color: '#FF0000',
+    });
+
+    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        layer.bringToFront();
+  }
+  info.update(layer.feature.properties);
+} 
+
+function resetHighlight(e) {
+    geojson.resetStyle(e.target);
+    info.update();
+}
+
+
+//add the polys to the map
+geojson = L.geoJson(hex, {
+    style: style,
+    onEachFeature: onEachFeature
+}).addTo(map);
+
+function onEachFeature(feature, layer) {
+    layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,        
+    });
+}
+
+//function to to get correct text info
+function getAnswer(d) {
+    if (d == 0) {
+        return 'No tweet activity'; 
+    }
+
+    else if(d > 1.1){
+        return 'Greater Maori tweet intenisty: '+d;
+    }
+
+    else if(d < 0.9){
+        return 'Lesser Maori tweet intenisty: '+ d;
+    }
+
+    else if (d > 0.9 || d < 1.1){
+        return 'Equal intensity';
+    }
+};
+
+var info = L.control();
+
+info.onAdd = function (map) {
+    this._div = L.DomUtil.create('div', 'info'); // create a div for the info class
+    this.update();
+    return this._div;
+};
+
+// method that we will use to update the control based on feature properties passed
+info.update = function (props) {
+
+    this._div.innerHTML = '<h4>New Zealand Tweet Data 2012 to Date</h4>' +  (props ?
+        '<b><i>' + getAnswer(props.RATIO) + '<br><br></b></i>' : '<b><i>Hover to show relative tweet intensity <br><br/></b></i>');
+};
+
+info.addTo(map);
+
+var legend = L.control({position: 'bottomright'});
+
+legend.onAdd = function (map) {
+
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = [,0, 0.9, 1.1],
+        labels = ['No tweet activity','Lesser Maori tweet intenisty', 'Equal intensity','Greater Maori tweet intenisty'];
+
+    // loop through our density intervals and generate a label with a colored square for each interval
+    div.innerHTML += "Legend:<br>"
+    for (var i = 0; i < grades.length; i++) {
+
+        div.innerHTML +=
+            '<i style="background:' + getColor2(grades[i]) + '"></i> ' + 
+            labels[i] + '<br>';
+    }
+    //+ (labels[i + 1] ? '&ndash;' + labels[i + 1] + '<br>' : '+'
+
+    return div;
+};
+
+legend.addTo(map);
+
+
+
+</script>
 </td>
     </tr>
   </tbody>
 </table>
 
-<table style="text-align: left; width: 80%; height: 10%; margin-left: auto; margin-right: auto; color: black; font-style: italic;" border="0" cellpadding="0" cellspacing="0">
+<table style="text-align: left; width: 90%; height: 10%; margin-left: auto; margin-right: auto; color: black; font-style: italic;" border="0" cellpadding="0" cellspacing="0">
 
   <tbody>
     <tr>
-      <td style="vertical-align: top; background-color: white; text-align: center;"><font face="Calibri"><br>
-Lab 5: placeholder text
+      <td style="vertical-align: top; background-color: white; text-align: center;"><font face="Calibri">
+Hexbin map showing instances of 'Maori' in tweets normalised against random tweets for New Zealand. Mouseover to show relationship.
       </font></td>
     </tr>
   </tbody>
