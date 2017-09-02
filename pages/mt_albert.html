@@ -52,6 +52,15 @@
 	  shadowSize: [41, 41]
 	});
 
+	var yellowIcon = new L.Icon({
+	  iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png',
+	  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+	  iconSize: [25, 41],
+	  iconAnchor: [12, 41],
+	  popupAnchor: [1, -34],
+	  shadowSize: [41, 41]
+	});
+
 	var redIcon = new L.Icon({
 	  iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
 	  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
@@ -64,7 +73,8 @@
 	var schools = L.layerGroup();
 	var medical = L.layerGroup();
 	var churches = L.layerGroup();
-	var supermarkets = L.layerGroup();
+	var parks = L.layerGroup();
+	var retail = L.layerGroup();
 	var trainStations = L.layerGroup();
 
 	
@@ -102,23 +112,43 @@
 	
 
 
-	//Churches (green icon)
+	//Churches (yellow icon)
 
-	L.marker([-36.881835, 174.719232],{icon: greenIcon}).bindPopup('<img src="img/thumb/Churches Mt Albert Methodist Church_thumb.jpg" alt="Mount Albert Methodist Church Image" style="width:384px;height:197px;"><br><b>Mount Albert Methodist Church</b><br>831 New North Rd<br>(09) 849 5174',img).addTo(churches);
+	L.marker([-36.881835, 174.719232],{icon: yellowIcon}).bindPopup('<img src="img/thumb/Churches Mt Albert Methodist Church_thumb.jpg" alt="Mount Albert Methodist Church Image" style="width:384px;height:197px;"><br><b>Mount Albert Methodist Church</b><br>831 New North Rd<br>(09) 849 5174',img).addTo(churches);
 
-	L.marker([-36.884718, 174.716911],{icon: greenIcon}).bindPopup('<img src="img/thumb/Churches Mount Albert Presbyterian Church_thumb.jpg" alt="Mount Albert Presbyterian Church Image" style="width:400px;height:279px;"><br><b>Mount Albert Presbyterian Church</b><br>14 Mt Albert Rd<br>(09) 846 7576',img).addTo(churches);
+	L.marker([-36.884718, 174.716911],{icon: yellowIcon}).bindPopup('<img src="img/thumb/Churches Mount Albert Presbyterian Church_thumb.jpg" alt="Mount Albert Presbyterian Church Image" style="width:400px;height:279px;"><br><b>Mount Albert Presbyterian Church</b><br>14 Mt Albert Rd<br>(09) 846 7576',img).addTo(churches);
 
-	L.marker([-36.878181, 174.728977],{icon: greenIcon}).bindPopup('<a href="img/Churches St Lukes Anglican Church.jpg"><img src="img/thumb/Churches St Lukes Anglican Church_thumb.jpg" alt="St Lukes Anglican Church Image" style="width:400px;height:300px;"></a><br><b>St Lukes Anglican Church</b><br>704 New North Rd<br>(09) 846 6046',img).addTo(churches);
+	L.marker([-36.878181, 174.728977],{icon: yellowIcon}).bindPopup('<a href="img/Churches St Lukes Anglican Church.jpg"><img src="img/thumb/Churches St Lukes Anglican Church_thumb.jpg" alt="St Lukes Anglican Church Image" style="width:400px;height:300px;"></a><br><b>St Lukes Anglican Church</b><br>704 New North Rd<br>(09) 846 6046',img).addTo(churches);
 
-	L.marker([-36.895698, 174.731529],{icon: greenIcon}).bindPopup('<img src="img/thumb/Churches Salvation Army Mt Albert_thumb.jpg" alt="Salvation Army Mt Albert Image" style="width:357px;height:240px;"><br><b>Salvation Army Mt Albert</b><br>218 Mount Albert Rd<br>(09) 629 5063',img).addTo(churches);
+	L.marker([-36.895698, 174.731529],{icon: yellowIcon}).bindPopup('<img src="img/thumb/Churches Salvation Army Mt Albert_thumb.jpg" alt="Salvation Army Mt Albert Image" style="width:357px;height:240px;"><br><b>Salvation Army Mt Albert</b><br>218 Mount Albert Rd<br>(09) 629 5063',img).addTo(churches);
 
-	L.marker([-36.881373, 174.725138],{icon: greenIcon}).bindPopup('<img src="img/thumb/Churches St Marys Catholic Church_thumb.jpg" alt="St Mary’s Catholic Church Image" style="width:357px;height:240px;"><br><b>St Mary’s Catholic Church</b><br>18/16 Kitenui Ave<br>(09) 846 6775',img).addTo(churches);
+	L.marker([-36.881373, 174.725138],{icon: yellowIcon}).bindPopup('<img src="img/thumb/Churches St Marys Catholic Church_thumb.jpg" alt="St Mary’s Catholic Church Image" style="width:357px;height:240px;"><br><b>St Mary’s Catholic Church</b><br>18/16 Kitenui Ave<br>(09) 846 6775',img).addTo(churches);
+
+	L.marker([-36.879883, 174.726770],{icon: yellowIcon}).bindPopup('<img src="img/thumb/Churches Mount Albert Baptist Church_thumb.jpg" alt="Mt Albert Baptist Church Image" style="width:299px;height:168px;"><br><b>Mt Albert Baptist Church</b><br>732 New North Rd<br>(09) 849 2849',img).addTo(churches);
+
+
+	//Medical (default blue icon)
+
+	L.marker([-36.879883, 174.726770]).bindPopup('<a href="img/Doctors, Four Kauris, BM, July 2017.jpg"><img src="img/thumb/Doctors, Four Kauris, BM, July 2017_thumb.jpg" alt="Four Kauri Family Medical Centre Image" style="width:299px;height:168px;"></a><br><b>Four Kauri Family Medical Centre</b><br>880 New North Rd<br>(09) 846 0002',img).addTo(medical);
+
+	L.marker([-36.885705, 174.714134]).bindPopup('<a href="img/doctors mt albert medical and dental centre.jpg"><img src="img/thumb/doctors mt albert medical and dental centre_thumb.jpg" alt="Mt Albert Medical and Dental Centre Image" style="width:299px;height:168px;"></a><br><b>Mt Albert Medical and Dental Centre</b><br>986 New North Rd<br>(09) 846 7493',img).addTo(medical);
+
+	L.marker([-36.895887, 174.731870]).bindPopup('<img src="img/thumb/Doctors alberton medical practice_thumb.jpg" alt="Alberton Medical Practice Image" style="width:270px;height:180px;"><br><b>Alberton Medical Practice</b><br>230 Mt Albert Rd<br>(09) 629 2088',img).addTo(medical);
+
+	L.marker([-36.885034, 174.735695]).bindPopup('<img src="img/thumb/Doctors st lukes medical centre_thumb.jpg" alt="St Lukes Medical Centre Image" style="width:275px;height:184px;"><br><b>St Lukes Medical Centre</b><br>99 St Lukes Rd<br>(09) 815 1124',img).addTo(medical);
+
+	L.marker([-36.876951, 174.706971]).bindPopup('<img src="img/thumb/Unitec_health_thumb.jpg" alt="Unitec Student Health Image" style="width:408px;height:306px;"><br><b>Unitec Student Health</b><br>Carrington Road (Building 28 Room 1023)<br>(09) 815 4321, ext 7248',img).addTo(medical);
+
+	L.marker([-36.881883, 174.731440]).bindPopup('<a href="img/White Cross, BM, 2017.jpg"><img src="img/thumb/White Cross, BM, 2017_thumb.jpg" alt="White Cross Accident and Medical Image" style="width:299px;height:168px;"></a><br><b>White Cross Accident and Medical</b><br>52 St Lukes Rd<br>(09) 815 3111',img).addTo(medical);
+
+	L.marker([-36.869989, 174.710906]).bindPopup('<img src="img/thumb/Doctors Pt Chevalier Medical and Surgical Centre_thumb.jpg" alt="Pt Chevalier Medical and Surgical Centre Image" style="width:270px;height:180px;"><br><b>Pt Chevalier Medical and Surgical Centre</b><br>1181 Great North Rd<br>(09) 846 6244',img).addTo(medical);
 
 
 
 
-	//Medical (default blue icon)	
-	// L.marker([-36.884126, 174.71525]).bindPopup('Trinity of Silver Cafe').addTo(cafes);//uses default blue icon
+
+
+
 
 
 
@@ -134,7 +164,7 @@
 	var map = L.map('map', {
 		center: [-36.884, 174.714],
 		zoom: 13,
-		layers: [streets, churches, schools, medical]
+		layers: [streets, churches, schools, medical, parks, retail, trainStations]
 	});
 
 	var baseLayers = {
@@ -146,7 +176,8 @@
 		"Churches": churches,
 		"Schools": schools,
 		"Medical": medical,
-		"Super Markets": supermarkets,
+		"Parks and Reserves": parks,
+		"Retail": retail,
 		"Train Stations": trainStations
 	};
 
