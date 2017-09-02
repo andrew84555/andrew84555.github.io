@@ -62,13 +62,13 @@
 	});
 
 	var schools = L.layerGroup();
-	var cafes = L.layerGroup();
+	var medical = L.layerGroup();
 	var churches = L.layerGroup();
 
 	
 	//Schools (red icon)
 
-	L.marker([-36.889338, 174.711722],{icon: redIcon}).bindPopup('<b>Hebron Christian College</b><br>1 McLean St<br>(09) 846 2159', noImg).addTo(schools);	
+	L.marker([-36.889338, 174.711722],{icon: redIcon}).bindPopup('<a href="img/Hebron Christian College BM June 2017.jpg"><img src="img/thumb/Hebron Christian College BM June 2017_thumb.jpg" alt="Hebron Christian College Image" style="width:400px;height:266px;"></a><br><b>Hebron Christian College</b><br>1 McLean St<br>(09) 846 2159',img).addTo(schools);	
 
 	L.marker([-36.885231, 174.725578],{icon: redIcon}).bindPopup('<a href="img/MAGS 4, BM June 2017.jpg"><img src="img/thumb/MAGS 4, BM June 2017_thumb.jpg" alt="Mt Albert Grammar School Image" style="width:400px;height:266px;"></a><br><b>Mt Albert Grammar School</b><br>Alberton Avenue<br>(09) 846 2044',img).addTo(schools);	
 
@@ -104,7 +104,7 @@
 
 	L.marker([-36.881835, 174.719232],{icon: greenIcon}).bindPopup('Mount Albert Methodist Church').addTo(churches);
 
-	L.marker([-36.884126, 174.71525]).bindPopup('Trinity of Silver Cafe').addTo(cafes);
+	// L.marker([-36.884126, 174.71525]).bindPopup('Trinity of Silver Cafe').addTo(cafes);
 
 
 
@@ -120,7 +120,7 @@
 	var map = L.map('map', {
 		center: [-36.884, 174.714],
 		zoom: 13,
-		layers: [streets, churches, schools, cafes]
+		layers: [streets, churches, schools, medical]
 	});
 
 	var baseLayers = {
@@ -131,7 +131,7 @@
 	var overlays = {
 		"Churches": churches,
 		"Schools": schools,
-		"Cafes": cafes
+		"Medical": medical
 	};
 
 	L.control.layers(baseLayers, overlays).addTo(map);
