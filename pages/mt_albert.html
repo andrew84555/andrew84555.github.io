@@ -64,6 +64,8 @@
 	var schools = L.layerGroup();
 	var medical = L.layerGroup();
 	var churches = L.layerGroup();
+	var supermarkets = L.layerGroup();
+	var trainStations = L.layerGroup();
 
 	
 	//Schools (red icon)
@@ -95,16 +97,24 @@
 
 	//These two images are only logos, no point linking to anything
 
-	L.marker([-36.894871, 174.714427],{icon: redIcon}).bindPopup('<img src="img/thumb/Schools Owairaka Kindergarten_thumb.png" alt="Owairaka Kindergarten Image" style="width:240px;height:241px;"><br><b>Owairaka Kindergarten</b><br>6a Dunkirk Terrace<br>(09) 846 5476',img).addTo(schools);
+	L.marker([-36.894871, 174.714427],{icon: redIcon}).bindPopup('<img src="img/thumb/Schools Owairaka kindergarten_thumb.png" alt="Owairaka Kindergarten Image" style="width:240px;height:241px;"><br><b>Owairaka Kindergarten</b><br>6a Dunkirk Terrace<br>(09) 846 5476',img).addTo(schools);
 
 	
 
 
 	//Churches (green icon)
 
-	L.marker([-36.881835, 174.719232],{icon: greenIcon}).bindPopup('<img src="img/thumb/Churches Mt Albert Methodist Church_thumb.jpg" alt="Mount Albert Methodist Church Image" style="width:384px;height:197px;"><br><b>Mount Albert Methodist Church</b><br>6a Dunkirk Terrace<br>(09) 846 5476',img).addTo(churches);
+	L.marker([-36.881835, 174.719232],{icon: greenIcon}).bindPopup('<img src="img/thumb/Churches Mt Albert Methodist Church_thumb.jpg" alt="Mount Albert Methodist Church Image" style="width:384px;height:197px;"><br><b>Mount Albert Methodist Church</b><br>831 New North Rd<br>(09) 849 5174',img).addTo(churches);
 
-	// L.marker([-36.884126, 174.71525]).bindPopup('Trinity of Silver Cafe').addTo(cafes);
+	L.marker([-36.884718, 174.716911],{icon: greenIcon}).bindPopup('<img src="img/thumb/Churches Mount Albert Presbyterian Church_thumb.jpg" alt="Mount Albert Presbyterian Church Image" style="width:400px;height:279px;"><br><b>Mount Albert Presbyterian Church</b><br>14 Mt Albert Rd<br>(09) 846 7576',img).addTo(churches);
+
+	L.marker([-36.878181, 174.728977],{icon: greenIcon}).bindPopup('<a href="img/Churches St Lukes Anglican Church"><img src="img/thumb/Churches St Lukes Anglican Church_thumb.jpg" alt="St Lukes Anglican Church Image" style="width:400px;height:300px;"></a><br><b>St Lukes Anglican Church</b><br>704 New North Rd<br>(09) 846 6046',img).addTo(churches);
+
+
+
+
+	//Medical (default blue icon)	
+	// L.marker([-36.884126, 174.71525]).bindPopup('Trinity of Silver Cafe').addTo(cafes);//uses default blue icon
 
 
 
@@ -131,7 +141,9 @@
 	var overlays = {
 		"Churches": churches,
 		"Schools": schools,
-		"Medical": medical
+		"Medical": medical,
+		"Super Markets": supermarkets,
+		"Train Stations": trainStations
 	};
 
 	L.control.layers(baseLayers, overlays).addTo(map);
