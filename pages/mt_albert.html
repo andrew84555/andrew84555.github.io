@@ -30,12 +30,7 @@
 
 <script>
 
-	var noImg =
-    {
-    'maxWidth': '200',
-    }
 
-// for when there is an image
     var img =
     {
     'maxWidth': '440',
@@ -97,7 +92,7 @@
 	  shadowSize: [41, 41]
 	});
 
-	var schools = L.layerGroup();
+	var education = L.layerGroup();
 	var medical = L.layerGroup();
 	var churches = L.layerGroup();
 	var parks = L.layerGroup();
@@ -109,35 +104,39 @@
 	
 	//Schools (red icon)
 
-	L.marker([-36.889338, 174.711722],{icon: redIcon}).bindPopup('<a href="img/Hebron Christian College BM June 2017.jpg"><img src="img/thumb/Hebron Christian College BM June 2017_thumb.jpg" alt="Hebron Christian College Image" style="width:400px;height:266px;"></a><br><b>Hebron Christian College</b><br>1 McLean St<br>(09) 846 2159',img).addTo(schools);	
+	L.marker([-36.889338, 174.711722],{icon: redIcon}).bindPopup('<a href="img/Hebron Christian College BM June 2017.jpg"><img src="img/thumb/Hebron Christian College BM June 2017_thumb.jpg" alt="Hebron Christian College Image" style="width:400px;height:266px;"></a><br><b>Hebron Christian College</b><br>1 McLean St<br>(09) 846 2159',img).addTo(education);	
 
-	L.marker([-36.885231, 174.725578],{icon: redIcon}).bindPopup('<a href="img/MAGS 4, BM June 2017.jpg"><img src="img/thumb/MAGS 4, BM June 2017_thumb.jpg" alt="Mt Albert Grammar School Image" style="width:400px;height:266px;"></a><br><b>Mt Albert Grammar School</b><br>Alberton Avenue<br>(09) 846 2044',img).addTo(schools);	
+	L.marker([-36.885231, 174.725578],{icon: redIcon}).bindPopup('<a href="img/MAGS 4, BM June 2017.jpg"><img src="img/thumb/MAGS 4, BM June 2017_thumb.jpg" alt="Mt Albert Grammar School Image" style="width:400px;height:266px;"></a><br><b>Mt Albert Grammar School</b><br>Alberton Avenue<br>(09) 846 2044',img).addTo(education);	
 
-	L.marker([-36.877826, 174.731594],{icon: redIcon}).bindPopup('<a href="img/Schools Mt Albert Primary, BM, June 2017.jpg"><img src="img/thumb/Schools Mt Albert Primary, BM, June 2017_thumb.jpg" alt="Mt Albert Primary School Image" style="width:400px;height:266px;"></a><br><b>Mt Albert Primary School</b><br>6 Sainsbury Rd<br>(09) 846 9288',img).addTo(schools);	
+	L.marker([-36.877826, 174.731594],{icon: redIcon}).bindPopup('<a href="img/Schools Mt Albert Primary, BM, June 2017.jpg"><img src="img/thumb/Schools Mt Albert Primary, BM, June 2017_thumb.jpg" alt="Mt Albert Primary School Image" style="width:400px;height:266px;"></a><br><b>Mt Albert Primary School</b><br>6 Sainsbury Rd<br>(09) 846 9288',img).addTo(education);	
 
-	L.marker([-36.888219, 174.725849],{icon: redIcon}).bindPopup('<a href="img/Te Kura Kaupapa, BM, August 2017.jpg"><img src="img/thumb/Te Kura Kaupapa, BM, August 2017_thumb.jpg" alt="Te Kura Kaupapa Maori o Nga Maugarongo Image" style="width:400px;height:266px;"></a><br><b>Te Kura Kaupapa Maori o Nga Maugarongo</b><br>140 Haverstock Rd<br>(09) 815 6349',img).addTo(schools);
+	L.marker([-36.888219, 174.725849],{icon: redIcon}).bindPopup('<a href="img/Te Kura Kaupapa, BM, August 2017.jpg"><img src="img/thumb/Te Kura Kaupapa, BM, August 2017_thumb.jpg" alt="Te Kura Kaupapa Maori o Nga Maugarongo Image" style="width:400px;height:266px;"></a><br><b>Te Kura Kaupapa Maori o Nga Maugarongo</b><br>140 Haverstock Rd<br>(09) 815 6349',img).addTo(education);
 
-	L.marker([-36.881149, 174.725383],{icon: redIcon}).bindPopup('<a href="img/Schools Marist College 1, BM, June 2017.jpg"><img src="img/thumb/Schools Marist College 1, BM, June 2017_thumb.jpg" alt="Marist College Image" style="width:400px;height:266px;"></a><br><b>Marist College</b><br>14 Kitenui Avenue<br>(09) 846 7408',img).addTo(schools);	
+	L.marker([-36.881149, 174.725383],{icon: redIcon}).bindPopup('<a href="img/Schools Marist College 1, BM, June 2017.jpg"><img src="img/thumb/Schools Marist College 1, BM, June 2017_thumb.jpg" alt="Marist College Image" style="width:400px;height:266px;"></a><br><b>Marist College</b><br>14 Kitenui Avenue<br>(09) 846 7408',img).addTo(education);	
 
-	L.marker([-36.895821, 174.716051],{icon: redIcon}).bindPopup('<a href="img/Schools Owairaka Primary School, BM, June 2017.jpg"><img src="img/thumb/Schools Owairaka Primary School, BM, June 2017_thumb.jpg" alt="Owairaka District School Image" style="width:400px;height:266px;"></a><br><b>Owairaka District School</b><br>113-115 Richardson Rd<br>(09) 846 5091',img).addTo(schools);
+	L.marker([-36.895821, 174.716051],{icon: redIcon}).bindPopup('<a href="img/Schools Owairaka Primary School, BM, June 2017.jpg"><img src="img/thumb/Schools Owairaka Primary School, BM, June 2017_thumb.jpg" alt="Owairaka District School Image" style="width:400px;height:266px;"></a><br><b>Owairaka District School</b><br>113-115 Richardson Rd<br>(09) 846 5091',img).addTo(education);
 
-	L.marker([-36.879414, 174.712088],{icon: redIcon}).bindPopup('<a href="img/Schools, Gladstone, BM, July 2017.jpg"><img src="img/thumb/Schools, Gladstone, BM, July 2017_thumb.jpg" alt="Gladstone Primary School Image" style="width:400px;height:266px;"></a><br><b>Gladstone Primary School</b><br>8 Seaview Terrace<br>(09) 846 9744',img).addTo(schools);
+	L.marker([-36.879414, 174.712088],{icon: redIcon}).bindPopup('<a href="img/Schools, Gladstone, BM, July 2017.jpg"><img src="img/thumb/Schools, Gladstone, BM, July 2017_thumb.jpg" alt="Gladstone Primary School Image" style="width:400px;height:266px;"></a><br><b>Gladstone Primary School</b><br>8 Seaview Terrace<br>(09) 846 9744',img).addTo(education);
 
-	L.marker([-36.865773, 174.717622],{icon: redIcon}).bindPopup('<a href="img/Schools Pasadena 1.jpg"><img src="img/thumb/Schools Pasadena 1_thumb.jpg" alt="Pasadena Intermediate School Image" style="width:400px;height:266px;"></a><br><b>Pasadena Intermediate School</b><br>Moray Place<br>(09) 846 2169',img).addTo(schools);
+	L.marker([-36.865773, 174.717622],{icon: redIcon}).bindPopup('<a href="img/Schools Pasadena 1.jpg"><img src="img/thumb/Schools Pasadena 1_thumb.jpg" alt="Pasadena Intermediate School Image" style="width:400px;height:266px;"></a><br><b>Pasadena Intermediate School</b><br>Moray Place<br>(09) 846 2169',img).addTo(education);
 
-	L.marker([-36.872593, 174.748253],{icon: redIcon}).bindPopup('<img src="img/thumb/Schools Kowhai Intermediate_thumb.jpg" alt="Kowhai Intermediate Image" style="width:400px;height:266px;"><br><b>Kowhai Intermediate</b><br>26 Onslow Rd<br>(09) 846 7534',img).addTo(schools);
+	L.marker([-36.872593, 174.748253],{icon: redIcon}).bindPopup('<img src="img/thumb/Schools Kowhai Intermediate_thumb.jpg" alt="Kowhai Intermediate Image" style="width:400px;height:266px;"><br><b>Kowhai Intermediate</b><br>26 Onslow Rd<br>(09) 846 7534',img).addTo(education);
 	//This kowhai image is very low res- no point linking to a bigger version, just used it as the thumbnail. Maybe find a better image somewhere?
 
-	L.marker([-36.903193, 174.730427],{icon: redIcon}).bindPopup('<b>Wesley Intermediate</b><br>766-778 Sandringham Rd<br>(09) 620 9367',noImg).addTo(schools);
+	L.marker([-36.903193, 174.730427],{icon: redIcon}).bindPopup('<b>Wesley Intermediate</b><br>766-778 Sandringham Rd<br>(09) 620 9367',img).addTo(education);
 
-	L.marker([-36.882506, 174.719180],{icon: redIcon}).bindPopup('<a href="img/Schools, Ferndale Kindy, BM, July 2017.jpg"><img src="img/thumb/Schools, Ferndale Kindy, BM, July 2017_thumb.jpg" alt="Ferndale Kindergarten Image" style="width:320px;height:266px;"></a><br><b>Ferndale Kindergarten</b><br>830 New North Rd<br>(09) 846 6909',img).addTo(schools);
+	L.marker([-36.882506, 174.719180],{icon: redIcon}).bindPopup('<a href="img/Schools, Ferndale Kindy, BM, July 2017.jpg"><img src="img/thumb/Schools, Ferndale Kindy, BM, July 2017_thumb.jpg" alt="Ferndale Kindergarten Image" style="width:320px;height:266px;"></a><br><b>Ferndale Kindergarten</b><br>830 New North Rd<br>(09) 846 6909',img).addTo(education);
 
-	L.marker([-36.882069, 174.709479],{icon: redIcon}).bindPopup('<img src="img/thumb/Schools Mt Albert Kindergarten_thumb.jpg" alt="Mt Albert Kindergarten Image" style="width:320px;height:151px;"><br><b>Mt Albert Kindergarten</b><br>24 Mark Road<br>(09) 846 4379',img).addTo(schools);
+	L.marker([-36.882069, 174.709479],{icon: redIcon}).bindPopup('<img src="img/thumb/Schools Mt Albert Kindergarten_thumb.jpg" alt="Mt Albert Kindergarten Image" style="width:320px;height:151px;"><br><b>Mt Albert Kindergarten</b><br>24 Mark Road<br>(09) 846 4379',img).addTo(education);
 
 	//These two images are only logos, no point linking to anything
 
-	L.marker([-36.894871, 174.714427],{icon: redIcon}).bindPopup('<img src="img/thumb/Schools Owairaka kindergarten_thumb.png" alt="Owairaka Kindergarten Image" style="width:240px;height:241px;"><br><b>Owairaka Kindergarten</b><br>6a Dunkirk Terrace<br>(09) 846 5476',img).addTo(schools);
+	L.marker([-36.894871, 174.714427],{icon: redIcon}).bindPopup('<img src="img/thumb/Schools Owairaka kindergarten_thumb.png" alt="Owairaka Kindergarten Image" style="width:240px;height:241px;"><br><b>Owairaka Kindergarten</b><br>6a Dunkirk Terrace<br>(09) 846 5476',img).addTo(education);
 
+	L.marker([-36.873621, 174.720898],{icon: redIcon}).bindPopup('<a href="img/AIS, BM June 2017.jpg"><img src="img/thumb/AIS, BM June 2017_thumb.jpg" alt="AIS Image" style="width:400px;height:266px;"></a><br><b>Auckland Institute of Studies (AIS)</b><br>28A Linwood Ave<br>(09) 815 1717',img).addTo(education);
+
+
+	L.marker([-36.877806, 174.708472],{icon: redIcon}).bindPopup('<a href="img/Unitec_Campus_Carrington_Rd.jpg"><img src="img/thumb/Unitec_Campus_Carrington_Rd_thumb.jpg" alt="Unitec Image" style="width:400px;height:300px;"></a><br><b>Unitec</b><br>139 Carrington Rd<br>(09) 815 4321<br><font size="-2">Image credit: By <a href="https://en.wikipedia.org/wiki/User:Ingolfson" class="extiw" title="wikipedia:User:Ingolfson">Ingolfson</a> at <a href="https://en.wikipedia.org/wiki/" class="extiw" title="wikipedia:">English Wikipedia</a>, Public Domain, <a href="https://commons.wikimedia.org/w/index.php?curid=2442315">Link</a></font>',img).addTo(education);
 	
 
 
@@ -156,9 +155,14 @@
 	L.marker([-36.879883, 174.726770],{icon: yellowIcon}).bindPopup('<img src="img/thumb/Churches Mount Albert Baptist Church_thumb.jpg" alt="Mt Albert Baptist Church Image" style="width:299px;height:168px;"><br><b>Mt Albert Baptist Church</b><br>732 New North Rd<br>(09) 849 2849',img).addTo(churches);
 
 
+
+
+
+
+
 	//Medical (default blue icon)
 
-	L.marker([-36.879883, 174.726770]).bindPopup('<a href="img/Doctors, Four Kauris, BM, July 2017.jpg"><img src="img/thumb/Doctors, Four Kauris, BM, July 2017_thumb.jpg" alt="Four Kauri Family Medical Centre Image" style="width:299px;height:168px;"></a><br><b>Four Kauri Family Medical Centre</b><br>880 New North Rd<br>(09) 846 0002',img).addTo(medical);
+	L.marker([-36.883623, 174.716798]).bindPopup('<a href="img/Doctors, Four Kauris, BM, July 2017.jpg"><img src="img/thumb/Doctors, Four Kauris, BM, July 2017_thumb.jpg" alt="Four Kauri Family Medical Centre Image" style="width:299px;height:168px;"></a><br><b>Four Kauri Family Medical Centre</b><br>880 New North Rd<br>(09) 846 0002',img).addTo(medical);
 
 	L.marker([-36.885705, 174.714134]).bindPopup('<a href="img/doctors mt albert medical and dental centre.jpg"><img src="img/thumb/doctors mt albert medical and dental centre_thumb.jpg" alt="Mt Albert Medical and Dental Centre Image" style="width:299px;height:168px;"></a><br><b>Mt Albert Medical and Dental Centre</b><br>986 New North Rd<br>(09) 846 7493',img).addTo(medical);
 
@@ -171,6 +175,11 @@
 	L.marker([-36.881883, 174.731440]).bindPopup('<a href="img/White Cross, BM, 2017.jpg"><img src="img/thumb/White Cross, BM, 2017_thumb.jpg" alt="White Cross Accident and Medical Image" style="width:299px;height:168px;"></a><br><b>White Cross Accident and Medical</b><br>52 St Lukes Rd<br>(09) 815 3111',img).addTo(medical);
 
 	L.marker([-36.869989, 174.710906]).bindPopup('<img src="img/thumb/Doctors Pt Chevalier Medical and Surgical Centre_thumb.jpg" alt="Pt Chevalier Medical and Surgical Centre Image" style="width:270px;height:180px;"><br><b>Pt Chevalier Medical and Surgical Centre</b><br>1181 Great North Rd<br>(09) 846 6244',img).addTo(medical);
+
+	L.marker([-36.882425, 174.720206]).bindPopup('<a href="img/Plunket, BM, July 2017.jpg"><img src="img/thumb/Plunket, BM, July 2017_thumb.jpg" alt="Mt Albert Plunket Clinic Image" style="width:400px;height:266px;"></a><br><b>Mt Albert Plunket Clinic</b><br>5A Alexis Avenue<br>(09) 846 6376',img).addTo(medical);
+
+
+
 
 
 
@@ -188,14 +197,21 @@
 	
 	L.marker([-36.879748, 174.725387],{icon: greenIcon}).bindPopup('<img src="img/thumb/Rocket Park_thumb.jpg" alt="Rocket Park Image" style="width:400px;height:400px;"><br><b>Rocket Park</b><br>New North Rd',img).addTo(parks);
 
-	L.marker([-36.880831, 174.722604],{icon: greenIcon}).bindPopup('<a href="img/Alice Wylie park 3, BM, February 2017.jpg"><img src="img/thumb/Alice Wylie park 3, BM, February 2017_thumb.jpg" alt="Alice Wylie Park Image" style="width:400px;height:266px;"></a><br><b>Alice Wylie Park</b><br>New North Rd',img).addTo(parks);
+	L.marker([-36.880831, 174.722604],{icon: greenIcon}).bindPopup('<a href="img/Alice Wylie park 3, BM, February 2017.jpg"><img src="img/thumb/Alice Wylie park 3, BM, February 2017_thumb.jpg" alt="Alice Wylie Reserve Image" style="width:400px;height:266px;"></a><br><b>Alice Wylie Reserve</b><br>New North Rd',img).addTo(parks);
 
 	L.marker([-36.895938, 174.722067],{icon: greenIcon}).bindPopup('<a href="img/Parks Owairaka Park 2, BM, 2017.jpg"><img src="img/thumb/Parks Owairaka Park 2, BM, 2017_thumb.jpg" alt="Owairaka Park Image" style="width:400px;height:266px;"></a><br><b>Owairaka Park</b><br>50-60 Owairaka Ave',img).addTo(parks);
 
 	L.marker([-36.874374, 174.728686],{icon: greenIcon}).bindPopup('<a href="img/Fowlds Park.jpg"><img src="img/thumb/Fowlds Park_thumb.jpg" alt="Fowlds Park Image" style="width:400px;height:225px;"></a><br><b>Fowlds Park</b>',img).addTo(parks);
 
+	L.marker([-36.871095, 174.719489],{icon: greenIcon}).bindPopup('<a href="img/Chamberlain 2, BM, June 2017.jpg"><img src="img/thumb/Chamberlain 2, BM, June 2017_thumb.jpg" alt="Chamberlain Park Image" style="width:400px;height:266px;"></a><br><b>Chamberlain Park</b><br>Entry off Linwood Ave<br>(09) 815 4999',img).addTo(parks);
 
-	//Community, Education and Local Attractions (violet)
+
+
+
+
+
+
+	//Community and Local Attractions (violet)
 
 	L.marker([-36.867639, 174.727102],{icon: violetIcon}).bindPopup('<a href="img/Motat 2, BM May 2017.jpg"><img src="img/thumb/Motat 2, BM May 2017_thumb.jpg" alt="MOTAT Image" style="width:400px;height:266px;"></a><br><b>MOTAT (Museum of Transport and Technology)</b><br>Great North Rd<br>(09) 815 5800',img).addTo(community);
 
@@ -207,9 +223,22 @@
 
 	L.marker([-36.883877, 174.726128],{icon: violetIcon}).bindPopup('<img src="img/thumb/Pool_thumb.jpg" alt="Mt Albert Aquatic Centre Image" style="width:400px;height:225px;"><br><b>Mt Albert Aquatic Centre</b><br>Alberton Ave<br>(09) 815 7001',img).addTo(community);
 
-	L.marker([-36.873621, 174.720898],{icon: violetIcon}).bindPopup('<a href="img/AIS, BM June 2017.jpg"><img src="img/thumb/AIS, BM June 2017_thumb.jpg" alt="AIS Image" style="width:400px;height:266px;"></a><br><b>Auckland Institute of Studies (AIS)</b><br>28A Linwood Ave<br>(09) 815 1717',img).addTo(community);
+	L.marker([-36.885145, 174.718639],{icon: violetIcon}).bindPopup('<a href="img/Bowls at Mt Albert Bowls Club have a go day.jpg"><img src="img/thumb/Bowls at Mt Albert Bowls Club have a go day_thumb.jpg" alt="Mt Albert Bowling Club Image" style="width:400px;height:241px;"></a><br><b>Mt Albert Bowling Club</b><br>10 Allendale Rd<br>(09) 846 6128',img).addTo(community);
 
-	L.marker([-36.885145, 174.718639],{icon: violetIcon}).bindPopup('<a href="img/Bowls at Mt Albert Bowls Club have a go day.jpg"><img src="img/thumb/Bowls at Mt Albert Bowls Club have a go day_thumb.jpg" alt="Mt Albert Bowling Club" style="width:400px;height:241px;"></a><br><b>Mt Albert Bowling Club</b><br>10 Allendale Rd<br>(09) 846 6128',img).addTo(community);
+	L.marker([-36.883247, 174.719643],{icon: violetIcon}).bindPopup('<a href="img/Croquet.jpg"><img src="img/thumb/Croquet_thumb.jpg" alt="Mt Albert Croquet Club Image" style="width:400px;height:300px;"></a><br><b>Mt Albert Croquet Club</b><br>50 Lloyd Ave<br>(09) 815 5915',img).addTo(community);
+
+	L.marker([-36.882768, 174.719402],{icon: violetIcon}).bindPopup('<a href="img/Ferndale 2, BM, July 2017.jpg"><img src="img/thumb/Ferndale 2, BM, July 2017_thumb.jpg" alt="Ferndale House Image" style="width:400px;height:266px;"></a><br><b>Ferndale House</b><br>830 New North Rd',img).addTo(community);
+
+	L.marker([-36.883986, 174.734941],{icon: violetIcon}).bindPopup('<a href="img/Library.jpg"><img src="img/thumb/Library_thumb.jpg" alt="Mt Albert Library Image" style="width:400px;height:266px;"></a><br><b>Mt Albert Library</b><br>84 St Lukes Rd<br>(09) 374 1316',img).addTo(community);
+
+	L.marker([-36.883678, 174.735024],{icon: violetIcon}).bindPopup('<b>Citizens Advice Bureau</b><br>82 St Lukes Rd (next to library)<br>(09) 846 4023',img).addTo(community);
+
+	L.marker([-36.883317, 174.716393],{icon: violetIcon}).bindPopup('<a href="img/Neighbourhood support and patrols, BM, July 2017.jpg"><img src="img/thumb/Neighbourhood support and patrols, BM, July 2017_thumb.jpg" alt="Neighbourhood Support Image" style="width:400px;height:266px;"></a><br><b>Neighbourhood Support</b><br>869 New North Rd<br>(09) 815 9605',img).addTo(community);
+
+	L.marker([-36.889965, 174.724689],{icon: violetIcon}).bindPopup('<a href="img/Alberton market 2, BM, March 2017.jpg"><img src="img/thumb/Alberton market 2, BM, March 2017_thumb.jpg" alt="Alberton House Image" style="width:400px;height:266px;"></a><br><b>Alberton House</b><br>Kerr Taylor Ave/Mt Albert Rd<br>(09) 846 7367',img).addTo(community);
+
+
+
 
 
 
@@ -223,6 +252,14 @@
 
 	L.marker([-36.883032, 174.732792],{icon: orangeIcon}).bindPopup('<a href="img/St Lukes, BM, 2017.jpg"><img src="img/thumb/St Lukes, BM, 2017_thumb.jpg" alt="St Lukes Mall Image" style="width:400px;height:266px;"></a><br><b>St Lukes Mall</b><br>St Lukes Mall (80 St Lukes Rd)<br>(09) 846 3829',img).addTo(retail);
 
+	L.marker([-36.885038, 174.731390],{icon: orangeIcon}).bindPopup('<a href="img/St Lukes Wagener Place, BM, June 2017.jpg"><img src="img/thumb/St Lukes Wagener Place, BM, June 2017_thumb.jpg" alt="Wagener Pl Image" style="width:400px;height:266px;"></a><br><b>Wagener Place Retail</b><br>Wagener Pl',img).addTo(retail);
+
+	L.marker([-36.882208, 174.717565],{icon: orangeIcon}).bindPopup('<a href="img/Market.jpg"><img src="img/thumb/Market_thumb.jpg" alt="Mt Albert Market Image" style="width:400px;height:299px;"></a><br><b>Mt Albert Market</b><br>847 New North Road<br>022 610 3696',img).addTo(retail);
+
+	L.marker([-36.880402, 174.726061],{icon: orangeIcon}).bindPopup('<a href="img/Supermarket New World Fresh Collective.jpg"><img src="img/thumb/Supermarket New World Fresh Collective_thumb.jpg" alt="Fresh Collective Image" style="width:400px;height:266px;"></a><br><b>Fresh Collective by New World</b><br>1 Alberton Ave<br>(09) 849 4311',img).addTo(retail);
+
+
+
 
 
 
@@ -231,7 +268,7 @@
 
 	L.marker([-36.884729, 174.714157],{icon: greyIcon}).bindPopup('<a href="img/Railway station 2, BM, July 2017.jpg"><img src="img/thumb/Railway station 2, BM, July 2017_thumb.jpg" alt="Mt Albert Train Station Image" style="width:400px;height:266px;"></a><br><b>Mt Albert Train Station</b><br>Entry from New North Rd or Carrington Rd',img).addTo(trainStations);
 
-	L.marker([-36.877704, 174.720461],{icon: greyIcon}).bindPopup('<b>Baldwin Ave Train Station</b><br>Entry from Baldwin Ave, or Doreen Ave/Margaret Ave',noImg).addTo(trainStations);
+	L.marker([-36.877704, 174.720461],{icon: greyIcon}).bindPopup('<a href="img/Baldwin station, MF, 2017.jpg"><img src="img/thumb/Baldwin station, MF, 2017_thumb.jpg" alt="Baldwin Train Station Image" style="width:400px;height:284px;"></a><br><b>Baldwin Ave Train Station</b><br>Entry from Baldwin Ave, or Doreen Ave/Margaret Ave',img).addTo(trainStations);
 
 
 	var mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
@@ -247,7 +284,7 @@
 		center: [-36.884, 174.714],
 		zoom: 13,
 		minZoom: 13,
-		layers: [streets, churches, schools, medical, parks, community, retail, trainStations]
+		layers: [streets, churches, education, medical, parks, community, retail, trainStations]
 	});
 
 	var baseLayers = {
@@ -257,10 +294,10 @@
 
 	var overlays = {
 		"Churches": churches,
-		"Schools": schools,
+		"Education": education,
 		"Medical": medical,
 		"Parks and Reserves": parks,
-		"Community, Education and Local Attractions": community,
+		"Community and Local Attractions": community,
 		"Retail": retail,
 		"Train Stations": trainStations
 	};
