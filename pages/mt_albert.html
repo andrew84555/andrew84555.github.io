@@ -70,12 +70,31 @@
 	  shadowSize: [41, 41]
 	});
 
+	var greyIcon = new L.Icon({
+	  iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-grey.png',
+	  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+	  iconSize: [25, 41],
+	  iconAnchor: [12, 41],
+	  popupAnchor: [1, -34],
+	  shadowSize: [41, 41]
+	});
+
+	var orangeIcon = new L.Icon({
+	  iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png',
+	  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+	  iconSize: [25, 41],
+	  iconAnchor: [12, 41],
+	  popupAnchor: [1, -34],
+	  shadowSize: [41, 41]
+	});
+
 	var schools = L.layerGroup();
 	var medical = L.layerGroup();
 	var churches = L.layerGroup();
 	var parks = L.layerGroup();
 	var retail = L.layerGroup();
 	var trainStations = L.layerGroup();
+
 
 	
 	//Schools (red icon)
@@ -145,10 +164,38 @@
 
 
 
+	//Parks and Local Attractions (green)
+
+	L.marker([-36.864107, 174.719695],{icon: greenIcon}).bindPopup('<img src="img/thumb/Auckland_Zoo_Entrance_thumb.jpg" alt="Auckland Zoo Image" style="width:400px;height:300px;"><br><b>Auckland Zoo</b><br>Motions Rd<br>(09) 360 3805',img).addTo(parks);
+
+	L.marker([-36.867639, 174.727102],{icon: greenIcon}).bindPopup('<a href="img/Motat 2, BM May 2017.jpg"><img src="img/thumb/Motat 2, BM May 2017_thumb.jpg" alt="MOTAT Image" style="width:400px;height:266px;"></a><br><b>MOTAT (Museum of Transport and Technology)</b><br>Great North Rd<br>(09) 815 5800',img).addTo(parks);
+
+	L.marker([-36.866470, 174.721514],{icon: greenIcon}).bindPopup('<a href="img/Western Springs F, BM, 2017.jpg"><img src="img/thumb/Western Springs F, BM, 2017_thumb.jpg" alt="Western Springs Park Image" style="width:400px;height:266px;"></a><br><b>Western Springs Park</b><br>Great North Rd',img).addTo(parks);
+
+	L.marker([-36.882475, 174.703042],{icon: greenIcon}).bindPopup('<a href="img/Oakley Creek 5, BM, 2017.jpg"><img src="img/thumb/Oakley Creek 5, BM, 2017_thumb.jpg" alt="Oakley Creek Image" style="width:400px;height:266px;"></a><br><b>Oakley Creek</b><br>Entry Phyllis St',img).addTo(parks);
+
+	L.marker([-36.883261, 174.728002],{icon: greenIcon}).bindPopup('<a href="img/Roy Clements 6, BM, 2017.jpg"><img src="img/thumb/Roy Clements 6, BM, 2017_thumb.jpg" alt="Roy Clements Treeway Image" style="width:400px;height:266px;"></a><br><b>Roy Clements Treeway</b><br>Entry Alberton Ave, Wagener Pl or Lyon Ave',img).addTo(parks);
+
+	L.marker([-36.890408, 174.719978],{icon: greenIcon}).bindPopup('<a href="img/Mountain A, BM, July 2017.jpg"><img src="img/thumb/Mountain A, BM, July 2017_thumb.jpg" alt="Mount Albert Image" style="width:400px;height:266px;"></a><br><b>Mount Albert - Owairaka Domain</b><br>Entry from Summit Drive',img).addTo(parks);
+
+	L.marker([-36.879093, 174.725395],{icon: greenIcon}).bindPopup('<img src="img/thumb/War memorial hall_thumb.jpg" alt="Mt Albert War Memorial Hall Image" style="width:400px;height:194px;"><br><b>Mt Albert War Memorial Hall</b><br>New North Rd',img).addTo(parks);
+
+	L.marker([-36.878543, 174.725466],{icon: greenIcon}).bindPopup('<a href="img/YMCA, BM, June 2017.jpg"><img src="img/thumb/YMCA, BM, June 2017_thumb.jpg" alt="Alice Wylie Park Image" style="width:400px;height:266px;"></a><br><b>Mount Albert Community and Leisure Centre (YMCA)</b><br>773 New North Rd<br>(09) 846 0788',img).addTo(parks);	
+
+	L.marker([-36.879748, 174.725387],{icon: greenIcon}).bindPopup('<img src="img/thumb/Rocket Park_thumb.jpg" alt="Rocket Park Image" style="width:400px;height:400px;"><br><b>Rocket Park</b><br>New North Rd',img).addTo(parks);
+
+	L.marker([-36.880831, 174.722604],{icon: greenIcon}).bindPopup('<a href="img/Alice Wylie park 3, BM, February 2017.jpg"><img src="img/thumb/Alice Wylie park 3, BM, February 2017_thumb.jpg" alt="Alice Wylie Park Image" style="width:400px;height:266px;"></a><br><b>Alice Wylie Park</b><br>New North Rd',img).addTo(parks);
 
 
 
 
+
+	//Retail (orange)
+
+
+	//Train stations (grey)
+
+	L.marker([-36.884729, 174.714157],{icon: greyIcon}).bindPopup('<a href="img/Railway station 2, BM, July 2017.jpg"><img src="img/thumb/Railway station 2, BM, July 2017_thumb.jpg" alt="Mt Albert Train Station Image" style="width:400px;height:266px;"></a><br><b>Mt Albert Train Station</b><br>Entry from New North Rd or Carrington Rd',img).addTo(trainStations);
 
 
 
@@ -176,7 +223,7 @@
 		"Churches": churches,
 		"Schools": schools,
 		"Medical": medical,
-		"Parks and Reserves": parks,
+		"Parks and Local Attractions": parks,
 		"Retail": retail,
 		"Train Stations": trainStations
 	};
